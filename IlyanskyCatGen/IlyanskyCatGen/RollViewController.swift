@@ -1,14 +1,19 @@
 import UIKit
+//import Foundation
 
 class RollViewController: UIViewController {
     @IBOutlet weak var rollButton: UIButton!
     @IBOutlet weak var catNameTextField: UITextField!
     @IBOutlet weak var rollActivityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rollActivityIndicator.style = .large
         rollActivityIndicator.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -18,13 +23,29 @@ class RollViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @objc
+    private func keyboardWillShow(notification: NSNotification) {
+       let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        
+    }
+
+    @objc
+    private func keyboardWillHide(notification: NSNotification) {
+       let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+            }
+    
     @IBAction func tapRollButton(_ sender: Any) {
-        fetchCat { [weak self] data in
+        let name = catNameTextField.text?.uppercased() ?? ""
+                
+        fetchCat(text: name == "" ? "BARSIK" : name) { [weak self] data in
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "CatImageViewController") as? CatImageViewController
             vc?.modalTransitionStyle = .crossDissolve
             
-            let name = self?.catNameTextField.text?.uppercased()
             vc?.catName = name == "" ? "BARSIK" : name
             vc?.catImage = UIImage(data: data)
             
@@ -33,9 +54,9 @@ class RollViewController: UIViewController {
         }
     }
     
-    private func fetchCat(completion: @escaping (Data) -> Void) {
-        guard let url = URL(string: "https://cataas.com/cat") else { return }
-        
+    private func fetchCat(text: String, completion: @escaping (Data) -> Void) {
+        guard let url = URL(string: "https://cataas.com/cat/says/\(text)?fontSize=50&fontColor=white") else { return }
+
         turnOffRollButtonIf(true)
         
         let task = URLSession.shared.dataTask(with: url) { data, error, response in
@@ -65,5 +86,6 @@ class RollViewController: UIViewController {
             rollButton.isUserInteractionEnabled = true
         }
     }
+    
 }
 

@@ -12,9 +12,8 @@ class CatImageViewController: UIViewController {
 
         catNameLabel.text = catName
         imageView.image = catImage
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 30
-        imageView.clipsToBounds = true
     }
 
 }

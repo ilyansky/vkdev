@@ -36,7 +36,7 @@ class RollViewController: UIViewController {
        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-            }
+    }
     
     @IBAction func tapRollButton(_ sender: Any) {
         let name = catNameTextField.text?.uppercased() ?? ""

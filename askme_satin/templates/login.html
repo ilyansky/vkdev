@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+</head>
+
+<body>
+<!-- Nav bar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">AskPupkin</a>
+      <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Ask</button>
+      </form>
+      <div class="d-flex gap-2">
+          <a href="#" class="btn btn-link">Log in</a>
+          <a href="#" class="btn btn-link">Register</a>
+      </div>
+  </div>
+</nav>
+
+<main class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Login Form -->
+      <section class="mb-5">
+          <h2>Log In</h2>
+          <div class="alert alert-danger" role="alert">
+              Sorry, wrong password!
+          </div>
+          <form>
+              <div class="mb-3">
+                  <label for="login" class="form-label">Login</label>
+                  <input type="text" class="form-control" id="login" placeholder="Enter your login here" maxlength="50" required>
+              </div>
+              <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" maxlength="50" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Log in!</button>
+              <p class="mt-2"><a href="#">Create new account</a></p>
+          </form>
+      </section>
+      
+    </div>
+
+    <!-- Tags, members -->
+    <div class="col">
+      <section class="mb-3">
+          <h2>Popular Tags</h2>
+          <div>
+              <span class="badge text-bg-primary">Primary</span>
+              <span class="badge text-bg-secondary">Secondary</span>
+              <span class="badge text-bg-success">Success</span>
+              <span class="badge text-bg-danger">Danger</span>
+              <span class="badge text-bg-warning">Warning</span>
+              <span class="badge text-bg-info">Info</span>
+              <span class="badge text-bg-light">Light</span>
+              <span class="badge text-bg-dark">Dark</span>
+          </div>
+      </section>
+
+      <section>
+          <h2>Best members</h2>
+          <div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><a href="#">Member</a></li>
+                  <li class="list-group-item"><a href="#">Member</a></li>
+                  <li class="list-group-item"><a href="#">Member</a></li>
+                  <li class="list-group-item"><a href="#">Member</a></li>
+                  <li class="list-group-item"><a href="#">Member</a></li>
+              </ul>
+          </div>
+      </section>
+    </div>
+
+  </div>
+</main>
+</body>
+</html>

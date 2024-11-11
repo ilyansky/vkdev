@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Demo</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <style>
+        .avatar-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .avatar-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #ccc;
+            margin-bottom: 10px;
+        }
+        .sidebar-section h2 {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Nav bar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+      <div class="d-flex w-100 justify-content-between align-items-center">
+          <a class="navbar-brand" href="index.html">Askme</a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">
+                <a href="ask.html">Ask</a>
+              </button>
+          </form>
+
+          <!-- Authorized -->
+          <div class="d-flex gap-1">
+              <img src="asda.jpg" alt="Avatar" class="img-thumbnail">
+              <div>
+                  <div>ilyansky</div>
+                  <a href="settings.html">settings</a>
+                  <a href="login.html">log out</a>
+              </div>
+          </div> 
+
+          <!-- Unauthorized -->
+          <!-- <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary">Sign In</a>
+              <a href="#" class="btn btn-secondary">Sign Up</a>
+          </div>  -->
+          
+      </div>
+  </div>
+</nav>  
+
+<main class="container mt-4">
+    <div class="row">
+        <!-- Left column - User settings -->
+        <div class="col-md-8">
+            <h2>Settings: Dr. Pepper</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="login" class="form-label">Login</label>
+                    <input type="text" class="form-control" id="login" value="dr_pepper">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" value="dr.pepper@mail.ru">
+                </div>
+                <div class="mb-3">
+                    <label for="nickname" class="form-label">Nickname</label>
+                    <input type="text" class="form-control" id="nickname" value="Dr. Pepper">
+                </div>
+                <div class="mb-3 avatar-upload">
+                    <label class="form-label">Upload avatar</label>
+                    <div class="avatar-placeholder">
+                        <span>avatar</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="avatarUpload">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+
+        <!-- Tags and members -->
+        <div class="col">
+          <section class="mb-3">
+              <h2>Popular Tags</h2>
+              <div>
+                  <span class="badge text-bg-primary">Primary</span>
+                  <span class="badge text-bg-secondary">Secondary</span>
+                  <span class="badge text-bg-success">Success</span>
+                  <span class="badge text-bg-danger">Danger</span>
+                  <span class="badge text-bg-warning">Warning</span>
+                  <span class="badge text-bg-info">Info</span>
+                  <span class="badge text-bg-light">Light</span>
+                  <span class="badge text-bg-dark">Dark</span>
+              </div>
+          </section>
+    
+          <section>
+              <h2>Best members</h2>
+              <div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a href="#">Member</a></li>
+                      <li class="list-group-item"><a href="#">Member</a></li>
+                      <li class="list-group-item"><a href="#">Member</a></li>
+                      <li class="list-group-item"><a href="#">Member</a></li>
+                      <li class="list-group-item"><a href="#">Member</a></li>
+                  </ul>
+              </div>
+          </section>
+        </div>
+        </div>
+    </div>
+</main>
+
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

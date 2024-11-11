@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block login %}
+{% include 'layouts/authorized.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="d-flex flex-column gap-3">
+
+    <div class="row">
+        <div class="col-3">
+            <div class="border mb-2" style="height: 100px">
+                <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+            </div>
+            <input class="form-control" type="number" value="5" placeholder="Default input"
+                   aria-label="default input example">
+        </div>
+
+        <div class="col-9">
+
+            <h5 class="card-title">{{ question.title }}</h5>
+            <p class="card-text">{{ question.text }}</p>
+
+            {% for i in question.tags_range %}
+            <a href="{% url 'tag' question.tag %}" class="card-link">{{ question.tag }}</a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% for i in question.ans_range %}
+    {% include 'layouts/answer_card.html' %}
+    {% endfor %}
+
+</div>
+
+<!-- Answer input form -->
+<form class="card p-3 mt-3">
+    <div class="mb-3">
+        <label for="answerInput" class="form-label">Enter your answer here</label>
+        <textarea class="form-control" id="answerInput" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Answer</button>
+</form>
+
+{% endblock %}

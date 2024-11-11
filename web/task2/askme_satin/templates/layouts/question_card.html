@@ -1,0 +1,35 @@
+{% load static %}
+
+<div class="card w-100" style="width: 18rem;">
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-3">
+                    <div class="border mb-2" style="height: 100px">
+                        <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+                    </div>
+                    <input class="form-control" type="number" value="5" placeholder="Default input"
+                           aria-label="default input example">
+                </div>
+
+                <div class="col-9">
+                    <h5 class="card-title">
+                        <a href="{% url 'question' question.id %}">{{ question.title }}</a>
+                    </h5>
+                    <p class="card-text">{{ question.text }}</p>
+
+                    <div class="d-flex gap-5">
+                        <a href="#" class="card-link">Answers ({{ question.ans_cnt }})</a>
+                        <div>
+
+                            Tags:
+                            {% for i in question.tags_range %}
+                            <a href="{% url 'tag' question.tag %}" class="card-link">{{ question.tag }}</a>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

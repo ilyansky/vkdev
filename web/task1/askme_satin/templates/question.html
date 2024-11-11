@@ -6,22 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap demo</title>
   <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-
-  <style>
-    .size200 {
-      width: 200px;
-      /* Задайте нужную ширину */
-      height: 200px;
-      /* Задайте нужную высоту */
-    }
-
-    .size150 {
-      width: 150px;
-      /* Задайте нужную ширину */
-      height: 150px;
-      /* Задайте нужную высоту */
-    }
-  </style>
 </head>
 
 <body>
@@ -29,7 +13,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <div class="d-flex w-100 justify-content-between align-items-center">
-        <a class="navbar-brand" href="#">Askme</a>
+        <a class="navbar-brand" href="index.html">Askme</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +22,9 @@
 
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Ask</button>
+          <button class="btn btn-outline-success" type="submit">
+            <a href="ask.html">Ask</a>
+          </button>
         </form>
 
         <!-- Authorized -->
@@ -46,15 +32,15 @@
           <img src="asda.jpg" alt="Avatar" class="img-thumbnail">
           <div>
             <div>ilyansky</div>
-            <a href="#">settings</a>
-            <a href="#">log out</a>
+            <a href="settings.html">settings</a>
+            <a href="login.html">log out</a>
           </div>
         </div>
 
         <!-- Unauthorized -->
         <!-- <div class="d-flex gap-2">
-              <a href="#" class="btn btn-primary">Sign In</a>
-              <a href="#" class="btn btn-secondary">Sign Up</a>
+              <a href="login.html" class="btn btn-primary">Sign In</a>
+              <a href="signup.html" class="btn btn-secondary">Sign Up</a>
           </div>  -->
 
       </div>

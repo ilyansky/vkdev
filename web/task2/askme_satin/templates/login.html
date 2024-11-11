@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block login %}
+{% include 'layouts/unauthorized.html' %}
+{% endblock %}
+
+{% block content %}
+<!-- Login Form -->
+<section class="mb-5">
+    <h2>Log In</h2>
+    <div class="alert alert-danger" role="alert">
+        Sorry, wrong password!
+    </div>
+    <form>
+        <div class="mb-3">
+            <label for="login" class="form-label">Login</label>
+            <input type="text" class="form-control" id="login" placeholder="Enter your login here"
+                   maxlength="50" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" maxlength="50" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Log in!
+        </button>
+        <p class="mt-2"><a href="{% url 'signup' %}">Create new account</a></p>
+    </form>
+</section>
+
+{% endblock %}

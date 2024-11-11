@@ -12,14 +12,16 @@
 <!-- Nav bar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">AskPupkin</a>
+      <a class="navbar-brand" href="index.html">Askme</a>
       <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Ask</button>
+          <button class="btn btn-outline-success" type="submit">
+            <a href="ask.html">Ask</a>
+          </button>
       </form>
       <div class="d-flex gap-2">
-          <a href="#" class="btn btn-link">Log in</a>
-          <a href="#" class="btn btn-link">Register</a>
+          <a href="login.html" class="btn btn-link">Log in</a>
+          <a href="signup.html" class="btn btn-link">Register</a>
       </div>
   </div>
 </nav>
@@ -27,38 +29,23 @@
 <main class="container mt-5">
   <div class="row">
     <div class="col-md-8">
-      <!-- Registration Form -->
+      <!-- Login Form -->
       <section class="mb-5">
-          <h2>Registration</h2>
+          <h2>Log In</h2>
           <div class="alert alert-danger" role="alert">
-              Sorry, this email address already registered!
+              Sorry, wrong password!
           </div>
           <form>
               <div class="mb-3">
-                  <label for="reg-login" class="form-label">Login</label>
-                  <input type="text" class="form-control" id="reg-login" placeholder="dr_pepper" maxlength="50" required>
+                  <label for="login" class="form-label">Login</label>
+                  <input type="text" class="form-control" id="login" placeholder="Enter your login here" maxlength="50" required>
               </div>
               <div class="mb-3">
-                  <label for="reg-email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="reg-email" placeholder="dr.pepper@mail.ru" maxlength="100" required>
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" maxlength="50" required>
               </div>
-              <div class="mb-3">
-                  <label for="reg-nickname" class="form-label">Nickname</label>
-                  <input type="text" class="form-control" id="reg-nickname" placeholder="Dr. Pepper" maxlength="50">
-              </div>
-              <div class="mb-3">
-                  <label for="reg-password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="reg-password" maxlength="50" required>
-              </div>
-              <div class="mb-3">
-                  <label for="reg-password-repeat" class="form-label">Repeat Password</label>
-                  <input type="password" class="form-control" id="reg-password-repeat" maxlength="50" required>
-              </div>
-              <div class="mb-3">
-                  <label for="reg-avatar" class="form-label">Upload avatar</label>
-                  <input type="file" class="form-control" id="reg-avatar" accept="image/*">
-              </div>
-              <button type="submit" class="btn btn-primary">Register!</button>
+              <button type="submit" class="btn btn-primary">Log in!</button>
+              <p class="mt-2"><a href="signup.html">Create new account</a></p>
           </form>
       </section>
       

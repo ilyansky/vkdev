@@ -21,7 +21,6 @@ for i in range(500):
         'tag': 'Tag' + str(num)
     })
 
-
 def paginate(objects_list, request, per_page=10):
     page_number = request.GET.get('page', 1)
     paginator = Paginator(objects_list, per_page)

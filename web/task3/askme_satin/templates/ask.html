@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block login %}
+{% include 'layouts/authorized.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-8">
+    <!-- New Question Form -->
+    <section>
+        <h2>New Question</h2>
+        <div class="alert alert-danger" role="alert">
+            There are empty fields!
+        </div>
+        <form>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="How to build a moon park?"
+                       maxlength="100" required>
+                <div class="form-text">Max 100 characters.</div>
+                <div class="invalid-feedback">Title is required and should be under 100 characters.</div>
+            </div>
+            <div class="mb-3">
+                <label for="text" class="form-label">Text</label>
+                <textarea class="form-control" id="text" rows="5" placeholder="Really, how? Have no idea about it."
+                          maxlength="500" required></textarea>
+                <div class="form-text">Provide details (Max 500 characters).</div>
+                <div class="invalid-feedback">Text is required and should be under 500 characters.</div>
+            </div>
+            <div class="mb-3">
+                <label for="tags" class="form-label">Tags</label>
+                <input type="text" class="form-control" id="tags" placeholder="moon, park, puzzle" maxlength="50">
+                <div class="form-text">Separate tags with commas (Max 50 characters).</div>
+                <div class="invalid-feedback">Tags are required and should be under 50 characters.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Ask</button>
+        </form>
+    </section>
+</div>
+
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+{% endblock %}

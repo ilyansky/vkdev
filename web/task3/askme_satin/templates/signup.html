@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block login %}
+{% include 'layouts/unauthorized.html' %}
+{% endblock %}
+
+{% block content %}
+<!-- Registration Form -->
+<section class="mb-5">
+    <h2>Registration</h2>
+    <div class="alert alert-danger" role="alert">
+        Sorry, this email address already registered!
+    </div>
+    <form>
+        <div class="mb-3">
+            <label for="reg-login" class="form-label">Login</label>
+            <input type="text" class="form-control" id="reg-login" placeholder="dr_pepper" maxlength="50" required>
+        </div>
+        <div class="mb-3">
+            <label for="reg-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="reg-email" placeholder="dr.pepper@mail.ru" maxlength="100"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="reg-nickname" class="form-label">Nickname</label>
+            <input type="text" class="form-control" id="reg-nickname" placeholder="Dr. Pepper" maxlength="50">
+        </div>
+        <div class="mb-3">
+            <label for="reg-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="reg-password" maxlength="50" required>
+        </div>
+        <div class="mb-3">
+            <label for="reg-password-repeat" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="reg-password-repeat" maxlength="50" required>
+        </div>
+        <div class="mb-3">
+            <label for="reg-avatar" class="form-label">Upload avatar</label>
+            <input type="file" class="form-control" id="reg-avatar" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Register!
+        </button>
+        <p class="mt-2"><a href="{% url 'login' %}">I have an account</a></p>
+    </form>
+</section>
+
+
+{% endblock %}
+
+
+

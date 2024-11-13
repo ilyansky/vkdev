@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block login %}
+{% include 'layouts/authorized.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="d-flex flex-column gap-3">
+
+    <div class="row">
+        <div class="col-3">
+            <div class="border mb-2" style="height: 100px">
+                <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+            </div>
+            <input class="form-control" type="number" value="{{ question.likes_count }}" placeholder="Default input"
+                   aria-label="default input example">
+        </div>
+
+        <div class="col-9">
+
+            <h5 class="card-title">{{ question.title }}</h5>
+            <p class="card-text">{{ question.text }}</p>
+
+            {% for tag in question.tags.all %}
+            <a href="{% url 'tag' tag %}" class="card-link">{{ tag.name }}</a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% for answer in question.allanswers.all %}
+    {% include 'layouts/answer_card.html' %}
+    {% endfor %}
+    {% include 'layouts/pagination.html' %}
+
+</div>
+
+<!-- Answer input form -->
+<form class="card p-3 mt-3">
+    <div class="mb-3">
+        <label for="answerInput" class="form-label">Enter your answer here</label>
+        <textarea class="form-control" id="answerInput" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Answer</button>
+</form>
+
+{% endblock %}
